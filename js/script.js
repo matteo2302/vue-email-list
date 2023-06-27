@@ -7,17 +7,15 @@ const app = createApp({
       emails: [],
     };
   },
-  methods: {
-    getEmails() {
-      for (i = 0; i < 10; i++) {
-        axios.get(input).then((res) => {
-          let email = res;
-          this.emails.push(email);
-          console.log(email);
-        });
-        // this.emails.push(email);
-      }
-    },
+  created() {
+    for (i = 0; i < 10; i++) {
+      axios.get(input).then((res) => {
+        let email = res.data.response;
+        this.emails.push(email);
+        console.log(email);
+      });
+      // this.emails.push(email);
+    }
   },
 });
 app.mount("#root");
