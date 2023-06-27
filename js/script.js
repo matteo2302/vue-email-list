@@ -11,7 +11,9 @@ const app = createApp({
     getEmails() {
       for (i = 0; i < 10; i++) {
         axios.get(input).then((res) => {
-          console.log(res);
+          let email = res;
+          this.emails.push(email);
+          console.log(email);
         });
         // this.emails.push(email);
       }
